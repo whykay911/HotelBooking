@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="mobile.css" />
+    <link rel="stylesheet" href="desktop.css" />
+    <link rel="stylesheet" href="tablet.css" />
+
+    <!--font awsome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+    <title>Hotel Booking</title>
+</head>
+
+<body>
+    <!--navbar-->
+    <header class="header">
+        <a href="./index.html"> <img class="header-logo"
+            src="./image/logo.png"
+            alt="logo" /></a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li>
+                <i class="fa fa-search" id="search-btn"></i>
+                <input type="text" id="search" placeholder="Search Hotels" />
+            </li>
+            
+            <li>
+                <a href="./wishlist/wishlist.html">
+                    <button><i class="fa fa-heart-o heart"></i>Wishlist</button>
+
+                </a>
+            </li>
+            <li>
+                <a href="./manage/manage.html">
+                    <button><i class="fa fa-book"></i> Booking</button>
+
+                </a>
+            </li>
+            <li>
+                <a href="./login/login.html">
+                    <button id="logout"><i class="fa fa-user-circle"></i> Login</button>
+
+                </a>
+            </li>
+            <li>
+                <a href="./about us/aboutus.html">
+                    <button><i class="fa fa-globe"></i>About Us</button>
+
+                </a>
+            </li>
+            <li>
+                <a href="./contact us/contactus.html">
+                    <button><i class="fa fa-envelope"></i>Contact Us</button>
+
+                </a>
+            </li>
+        </ul>
+    </header>
+
+    <div class="top-slider-box">
+
+        <div class="top-slider-pic"><img src="./image/hotel1.jpg" alt="top-slider Image" class="top-slider-image" />
+        </div>
+        <div class="top-slider-pic"><img src="./image/hotel2.jpg" alt="top-slider Image" class="top-slider-image" />
+        </div>
+        <div class="top-slider-pic"><img src="./image/hotel3.jpg" alt="top-slider Image" class="top-slider-image" />
+        </div>
+        <div class="top-slider-pic"><img src="./image/hotel4.jpg" alt="top-slider Image" class="top-slider-image" />
+        </div>
+
+    </div>
+
+
+    <div class="hotel-card-grid" id="home-container">
+        
+        
+       
+        
+
+       
+    </div>
+
+
+
+
+    <!--script tag-->
+    <script src="index.js"></script>
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</body>
+</html>

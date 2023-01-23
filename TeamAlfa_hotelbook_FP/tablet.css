@@ -1,0 +1,36 @@
+@media only screen and (max-width: 1200px) {
+    .hotel-card-grid{
+        grid-template-columns: auto auto auto ;
+      }
+      .detail-price span button{
+        padding: 15px 10px !important;
+        font-size: 0.8em ;
+      }
+      .wishlist-roombook input{
+        padding: 10px;
+        width: 50% !important;
+      }
+      
+}
+@media only screen and (max-width: 940px) {
+    .hotel-card-grid{
+        grid-template-columns: auto auto  ;
+      }
+      .detail-include-list div {
+        display: block !important;
+        margin-top: 30px;
+      }
+      .detail-include-list div span:nth-child(1) {
+        padding: 10px !important;
+      }
+      .detail-include-list div span:nth-child(2) {
+        font-size: 0.8em;
+      }
+      .detail-price span button{
+        padding: 15px 10px !important;
+        font-size: 0.7em ;
+      }
+      .detail-info {
+        padding-right: 10px !important;
+      }
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../mobile.css" />
+    <link rel="stylesheet" href="../desktop.css" />
+    <link rel="stylesheet" href="../tablet.css" />
+
+    <!--font awsome-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+    <title>Hotel Booking</title>
+</head>
+
+<body>
+    <!--navbar-->
+    <header class="header">
+        <a href="../index.html"> <img class="header-logo" src="../image/logo.png" alt="logo" /></a>
+        <input class="menu-btn" type="checkbox" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+        <ul class="menu">
+            <li>
+                <i class="fa fa-search" id="search-btn"></i>
+                <input type="text" id="search" placeholder="Search Hotels" />
+            </li>
+
+            <li>
+                <a href="../wishlist/wishlist.html">
+                    <button><i class="fa fa-heart-o heart"></i>Wishlist</button>
+
+                </a>
+            </li>
+            <li>
+                <a href="../manage/manage.html">
+                    <button><i class="fa fa-book"></i> Booking</button>
+
+                </a>
+            </li>
+            <li>
+                <a href="../login/login.html">
+                    <button id="logout"><i class="fa fa-user-circle"></i> Login</button>
+
+                </a>
+            </li>
+            <li>
+                <a href="./aboutus.html">
+                    <button><i class="fa fa-globe"></i>About Us</button>
+    
+                </a>
+            </li>
+            <li>
+                <a href="../contact us/contactus.html">
+                    <button><i class="fa fa-envelope"></i>Contact Us</button>
+    
+                </a>
+            </li>
+        </ul>
+    </header>
+
+
+
+
+    <div class="about-container">
+        <div class="about-page">
+            <h1>About HotelBook</h1>
+            <p>
+                Founded in 1996 in Amsterdam, HotelBook has grown from a small Dutch startup to one of the world’s
+                leading digital travel companies. Part of Booking Holdings Inc. (NASDAQ: BKNG), HotelBook’s mission is
+                to make it easier for everyone to experience the world.
+
+                By investing in the technology that helps take the friction out of travel, HotelBook seamlessly connects
+                millions of travellers with memorable experiences, a range of transport options and incredible places to
+                stay - from homes to hotels and much more. As one of the world’s largest travel marketplaces for both
+                established brands and entrepreneurs of all sizes, HotelBook enables properties all over the world to
+                reach a global audience and grow their businesses.
+
+                HotelBook is available in 43 languages and offers more than 28 million total reported accommodation
+                listings, including over 6.2 million listings alone of homes, apartments and other unique places to
+                stay. No matter where you want to go or what you want to do, HotelBook makes it easy and backs it all up
+                with 24/7 customer support.
+            </p>
+        </div>
+        <div class="about-places">
+            <p>
+                HotelBook B.V. is based in Amsterdam in the Netherlands, and is supported internationally by 198
+                offices in over 70 countries around the world: Accra - Amman - Amsterdam - Antalya - Athens - Atlanta -
+                Auckland - Bangalore - Bangkok - Barcelona - Beijing - Berlin - Bilbao - Bogotá - Bolzano - Bordeaux -
+                Boston - Bratislava - Brisbane - Bristol - Brussels - Bucharest - Budapest - Buenos Aires - Cairo -
+                Calgary - Cambridge - Cancún - Cape Town - Casablanca - Catania - Chengdu - Chicago - Colombo -
+                Copenhagen - Dallas - Denver - Dubai - Dublin - Dubrovnik - Dusseldorf - Edinburgh - Faro - Florence -
+                Frankfurt am Main - Freiburg im Breisgau - Fukuoka - Grand Rapids - Guadalajara - Guangzhou - Haikou -
+                Hamburg - Hanoi - Helsinki - Heraklion - Ho Chi Minh City - Hong Kong - Honolulu - Houston - Innsbruck -
+                Istanbul - İzmir - Jakarta - Jeddah - Jeju - Johannesburg - Kiev - Koh Samui - Krakow - Kuala Lumpur -
+                Kuta (Bali) - Las Palmas de Gran Canaria - Las Vegas - Lille - Lima - Limassol - Lisbon - Ljubljana -
+                London - Los Angeles - Lyon - Madrid - Málaga - Manchester - Manila - Marrakech - Melbourne - Mexico
+                City - Miami - Milan - Montpellier - Montréal - Moscow - Mumbai - Munich - Naha - Nairobi - Natal - New
+                Delhi - New Orleans - New York - Nice - Norwalk - Orlando - Osaka - Oslo - Palma de Mallorca - Panama
+                City - Paris - Phoenix - Phuket - Porto Alegre - Prague - Qingdao - Rennes - Reykjavík - Riga - Rimini -
+                Rio de Janeiro - Rome - Saint Petersburg - Sallanches - Salzburg - San Diego - San Francisco - San Jose
+                - San Juan - Santiago - Santo Domingo - São Paulo - Sapporo - Seattle - Seoul - Seville - Shanghai -
+                Siem Reap - Singapore - Sochi - Sofia - Sorrento - Split - Stockholm - Strasbourg - Sydney - Taipei -
+                Tallinn - Tbilisi - Tel Aviv - Thessaloníki - Tokyo - Toronto - Trabzon - Vancouver - Venice - Verona -
+                Vienna - Vilnius - Warsaw - Washington - Xi'an - Yangon - Yogyakarta - Zagreb - Zurich
+            </p>
+        </div>
+    </div>
+<script>
+window.onload=()=>{
+    if(localStorage.getItem("login")=="true"){
+        document.getElementById("logout").innerHTML="Log out"
+    }
+    else{
+        document.getElementById("logout").innerHTML="Login"
+
+    }
+}
+document.getElementById('search-btn').onclick = () => {
+    let val = document.getElementById('search').value;
+    localStorage.setItem("search", val);
+    window.location = '../hotelslist/hotellist.html'
+
+}
+</script>
+</body>
+
+</html>

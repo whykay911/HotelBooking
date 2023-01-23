@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../mobile.css" />
+    <link rel="stylesheet" href="../desktop.css" />
+    <link rel="stylesheet" href="../tablet.css" />
+
+    <!--font awsome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+
+    <title>Hotel Booking</title>
+</head>
+
+<body>
+      <!--script tag-->
+      <script>
+
+        window.onload = () => {
+            let request = window.indexedDB.open("hotels", 1)
+                , db, tx, store, index, wishlist
+                ;
+
+            request.onupgradeneeded = (e) => {
+                let db = request.result;
+                let store = db.createObjectStore("hotelsinfo", {
+                    keyPath: "id"
+                });
+                let index = store.createIndex("city", "city", { unique: false });
+                let storewishlist = db.createObjectStore("hotelwishlist", { keyPath: "uid", autoIncrement: true });
+                let indexwishlist = storewishlist.createIndex("title", "title", { unique: false });
+                let indexwishlist2 = storewishlist.createIndex("mail", "mail", { unique: false });
+                let storedetails = db.createObjectStore("details", { keyPath: "id" });
+                let indexdetails = storedetails.createIndex("title", "title", { unique: false });
+                let managestore = db.createObjectStore("manage", { keyPath: "uid", autoIncrement: true });
+                let indexmanage = managestore.createIndex("title", "title", { unique: false });
+                let indexmanage2 = managestore.createIndex("mail", "mail", { unique: false });
+                let checkinstore = db.createObjectStore("checkin", { keyPath: "id" });
+                let indexcheckin = checkinstore.createIndex("id", "id", { unique: false });
+                let userstore = db.createObjectStore("user", { keyPath: "mail" });
+                let indexuser = userstore.createIndex("mail", "mail", { unique: false });
+
+            }
+
+            request.onerror = (e) => {
+                console.log('error is comming' + e.target.errorCode);
+            }
+            request.onsuccess = (e) => {
+                db = request.result;
+                tx = db.transaction("hotelsinfo", "readwrite");
+                store = tx.objectStore("hotelsinfo");
+                index = store.index("city");
+                db.onerror = (e) => {
+                    console.log('error is comming' + e.target.errorCode);
+                }
+                store.put({
+                    id: '1', title: "Virgin Hotels Las Vegas, Curio Collection by Hilton", originalprice: "140$", description: "The swimming pool hours of operation vary with the season.The property has connecting/adjoining rooms, which are subject to availability and can be requested by contacting the property using the number on the booking confirmation.Pet-friendly rooms can be requested by contacting the property at the number on the booking confirmation.The seasonal pool is open from May to October.Pool access available from 9: 00 AM to 6: 00 PM.Guests can rest easy knowing there's a fire extinguisher, a smoke detector, and a first aid kit on site.", city: "Las Vegas", services: [], images: "https://pix10.agoda.net/hotelImages/124/1246280/1246280_16061017110043391702.jpg?s=1024x768", price: "110$", rating: "3"
+                });
+                store.put({
+                    id: '2', title: "The Signature Condo Hotel", originalprice: "80$", description: "The property has connecting/adjoining rooms, which are subject to availability and can be requested by contacting the property using the number on the booking confirmation.Guests can rest easy knowing there's a carbon monoxide detector, a smoke detector, a security system, a first aid kit, and window guards on site.This property advises that enhanced cleaning and guest safety measures are currently in place.The property is professionally cleaned; disinfectant is used to clean the property; commonly-touched surfaces are cleaned with disinfectant between stays; bed sheets and towels are laundered at a temperature of at least 60°C/140°F.Masks are required in public areas.Contactless check-in and contactless check-out are available.", city: "Las Vegas", services: [], images: "https://www.fortispayments.com/wp-content/uploads/2019/03/pool-for-google-blog.jpg", price: "40$", rating: "3"
+                }); store.put({
+                    id: '3', title: "Hotel Audrey", originalprice: "130$", description: "The property has connecting/adjoining rooms, which are subject to availability and can be requested by contacting the property using the number on the booking confirmation. This property advises that enhanced cleaning and guest safety measures are currently in place. Disinfectant is used to clean the property. Social distancing measures are in place; staff at the property wear personal protective equipment; periodic temperature checks are conducted on staff; guests are provided with hand sanitizer; cashless payment methods are available for all transactions; masks are required in public areas.", city: "Chicago", services: [], images: "https://cdn.britannica.com/96/115096-050-5AFDAF5D/Bellagio-Hotel-Casino-Las-Vegas.jpg", price: "50$", rating: "3"
+                });
+                store.put({
+                    id: '4', title: "urostars Magnificent Mile", originalprice: "200$", description: "This property's policy is to refuse certain bookings for the purpose of group events or parties, including pre-wedding stag/bachelor and hen/bachelorette parties.Noise-free guestrooms cannot be guaranteed. Only registered guests are allowed in the guestrooms. This property advises that enhanced cleaning and guest safety measures are currently in place.Disinfectant is used to clean the property, and commonly-touched surfaces are cleaned with disinfectant between stays.Social distancing measures are in place; staff at the property wear personal protective equipment; a shield is in place between staff and guests in main contact areas; guests are provided with hand sanitizer.", city: "Chicago", services: [], images: "https://www.mayfairhotels.com/img/home_banner/Mayfair_Waves.jpg", price: "160$", rating: "3"
+                });
+                store.put({
+                    id: '5', title: "Hotel Central Times Square", originalprice: "210$", description: "The property has connecting/adjoining rooms, which are subject to availability and can be requested by contacting the property using the number on the booking confirmation.Guests can rest easy knowing there's a carbon monoxide detector, a smoke detector, a security system, a first aid kit, and window guards on site.This property advises that enhanced cleaning and guest safety measures are currently in place.The property is professionally cleaned; disinfectant is used to clean the property; commonly-touched surfaces are cleaned with disinfectant between stays; bed sheets and towels are laundered at a temperature of at least 60°C/140°F.Masks are required in public areas.Contactless check-in and contactless check-out are available.", city: "New York", services: [], images: "https://s7d2.scene7.com/is/image/ritzcarlton/dxbrz-pool-beach-50717956?$XlargeViewport100pct$", price: "170$", rating: "3"
+                }); store.put({
+                    id: '6', title: "The Bryant Park Hotel", originalprice: "165$", description: "The property has connecting/adjoining rooms, which are subject to availability and can be requested by contacting the property using the number on the booking confirmation. This property advises that enhanced cleaning and guest safety measures are currently in place. Disinfectant is used to clean the property. Social distancing measures are in place; staff at the property wear personal protective equipment; periodic temperature checks are conducted on staff; guests are provided with hand sanitizer; cashless payment methods are available for all transactions; masks are required in public areas.", city: "New York", services: [], images: "https://k6u8v6y8.stackpathcdn.com/blog/wp-content/uploads/2018/06/Hotels-in-India.jpg", price: "160$", rating: "3"
+                });
+                store.put({
+                    id: '7', title: "Hilton Newark ", originalprice: "300$", description: "The swimming pool hours of operation vary with the season.The property has connecting/adjoining rooms, which are subject to availability and can be requested by contacting the property using the number on the booking confirmation.Pet-friendly rooms can be requested by contacting the property at the number on the booking confirmation.The seasonal pool is open from May to October.Pool access available from 9: 00 AM to 6: 00 PM.Guests can rest easy knowing there's a fire extinguisher, a smoke detector, and a first aid kit on site.", city: "New Jersey", services: [], images: "https://www.nevistas.com/ul/4/2018/11/29/02.jpg", price: "239$", rating: "3"
+                });
+                store.put({
+                    id: '8', title: "Hilton Irvine Orange", originalprice: "280$", description: "The property has connecting/adjoining rooms, which are subject to availability and can be requested by contacting the property using the number on the booking confirmation.Guests can rest easy knowing there's a carbon monoxide detector, a smoke detector, a security system, a first aid kit, and window guards on site.This property advises that enhanced cleaning and guest safety measures are currently in place.The property is professionally cleaned; disinfectant is used to clean the property; commonly-touched surfaces are cleaned with disinfectant between stays; bed sheets and towels are laundered at a temperature of at least 60°C/140°F.Masks are required in public areas.Contactless check-in and contactless check-out are available.", city: "California", services: [], images: "https://content.r9cdn.net/himg/3e/a0/16/hotelsdotcom-454102-d3f9d97b_w-765017.jpg", price: "230$", rating: "3"
+                });
+                tx.oncomplete = () => {
+                    db.close();
+                }
+                window.location = '../login/login.html';
+
+            }
+        
+        }
+
+    </script>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</body>
+
+</html>
